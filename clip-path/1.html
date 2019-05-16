@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: #333;
+        }
+      .box {
+          width: 200px;
+          height: 200px;
+          /* background: url(bg.jpg) no-repeat center;
+          background-size: cover; */
+          background: pink;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translate(-50%, -50%); 
+      }    
+      .box::before, .box::after {
+          content: '';
+          border: 2px solid green;
+          margin: -15px;
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          animation: borderClip 8s ease infinite;
+          /* animation: borderClip 8s linear infinite; */
+      }
+      .box::after {
+          animation-delay: -4s;
+      }
+      .box:hover::after, .box:hover::before {
+          animation-play-state: paused;
+      }
+      @keyframes borderClip {
+          0%, 100%{
+              /* top right bottom left */
+            clip: rect(0, 230px, 2px, 0);
+          }
+          25% {
+            clip: rect(0, 2px, 230px, 0);  
+          }
+          50% {
+            clip: rect(228px, 230px, 230px, 0);  
+          }
+          75% {
+            clip: rect(0, 230px, 230px, 228px);  
+          }
+      }
+    </style>
+</head>
+<body>
+   <div class="box">
+      
+   </div>
+</body>
+</html>
